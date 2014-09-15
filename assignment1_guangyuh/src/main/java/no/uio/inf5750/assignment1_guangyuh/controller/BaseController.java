@@ -14,7 +14,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class BaseController {
  
+       
+        @RequestMapping(value="/welcome/{name}", method = RequestMethod.GET)
+        public String welcomeName(@PathVariable String name, ModelMap model) {
+
+                model.addAttribute("message", "Maven Web Project + Spring 3 MVC - " + name);
+                return "welcome";
+
+        }
+
+        @RequestMapping(value="/hello/{name}", method = RequestMethod.GET)
+        public String helloName(@PathVariable String name, ModelMap model) {
+
+                model.addAttribute("message", "Maven Web Project + Spring 3 MVC - " + name);
+                return "hello";
+
+        }
+
+
+        
         @Autowired
+        
         private MessageDao messageDao;
         
         /*
